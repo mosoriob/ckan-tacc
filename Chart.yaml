@@ -1,0 +1,10 @@
+apiVersion: v2
+name: ckan-tacc
+description: A CKAN instance
+type: application
+version: 0.1.1
+appVersion: 1.0.2
+dependencies:
+  - name: ckan
+    version: 3.4.0
+    repository: https://keitaro-charts.storage.googleapis.com
