@@ -6,6 +6,7 @@ ckan:
   image:
     repository: ghcr.io/mosoriob/ckan
     tag: afe048f8ecebe8429c8072181a197b51227fa81c
+
   ckan:
     siteUrl: 'http://ckan.tacc.cloud'
     ckanPlugins: 'envvars activity image_view datatables_view datastore datapusher recline_view oauth2'
