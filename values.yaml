@@ -7,8 +7,45 @@ ckan:
     #repository: ghcr.io/mosoriob/ckan-tacc-images
     #tag: main
     repository: ghcr.io/mosoriob/ckan
-    tag: 2.9.11
-  ckanPlugins: 'envvars activity image_view datatables_view datastore datapusher recline_view'
+    tag: dfd9659532233a6af2538cc4f7e91d7246c29af95
+  ckanPlugins: 'envvars activity image_view datatables_view datastore datapusher recline_view oauth2'
+  extraEnv:
+    - name: CKAN_OAUTH2_REGISTER_URL
+      value: 'https://portals.tapis.io/auth/sign-up'
+    - name: CKAN_OAUTH2_RESET_URL
+      value: 'https://portals.tapis.io/auth/password/new'
+    - name: CKAN_OAUTH2_EDIT_URL
+      value: 'https://portals.tapis.io/auth/settings'
+    - name: CKAN_OAUTH2_AUTHORIZATION_ENDPOINT
+      value: 'https://portals.tapis.io/v3/oauth2/authorize'
+    - name: CKAN_OAUTH2_TOKEN_ENDPOINT
+      value: 'https://portals.tapis.io/v3/oauth2/tokens'
+    - name: CKAN_OAUTH2_PROFILE_API_URL
+      value: 'https://portals.tapis.io/v3/oauth2/profile'
+    - name: CKAN_OAUTH2_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: ckan-oauth-secrets
+          key: client-id
+    - name: CKAN_OAUTH2_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: ckan-oauth-secrets
+          key: client-secret
+    - name: CKAN_OAUTH2_SCOPE
+      value: 'openid profile email'
+    - name: CKAN_OAUTH2_REMEMBERER_NAME
+      value: 'auth_tkt'
+    - name: CKAN_OAUTH2_PROFILE_API_USER_FIELD
+      value: 'tapis/username'
+    - name: CKAN_OAUTH2_PROFILE_API_FULLNAME_FIELD
+      value: 'tapis/fullname'
+    - name: CKAN_OAUTH2_PROFILE_API_MAIL_FIELD
+      value: 'tapis/email'
+    - name: CKAN_OAUTH2_AUTHORIZATION_HEADER
+      value: 'Bearer'
+    - name: CKAN_OAUTH2_JWT_ENABLE
+      value: 'true'
 
   pvc:
     size: '1Gi'
