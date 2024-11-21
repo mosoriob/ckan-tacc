@@ -4,10 +4,8 @@
 ckan:
   replicaCount: 1
   image:
-    #repository: ghcr.io/mosoriob/ckan-tacc-images
-    #tag: main
     repository: ghcr.io/mosoriob/ckan
-    tag: dfd9659532233a6af2538cc4f7e91d7246c29af95
+    tag: 551ff8fc57e9e833c1469675d833be70d73a84ba
   ckanPlugins: 'envvars activity image_view datatables_view datastore datapusher recline_view oauth2'
   extraEnv:
     - name: CKAN_OAUTH2_REGISTER_URL
