@@ -6,8 +6,9 @@ ckan:
   image:
     #repository: ghcr.io/mosoriob/ckan-tacc-images
     #tag: main
-    repository: keitaro/ckan
-    tag: 2.11.0
+    repository: ghcr.io/mosoriob/ckan
+    tag: 2.9.11
+  ckanPlugins: 'envvars activity image_view datatables_view datastore datapusher recline_view'
 
   pvc:
     size: '1Gi'
