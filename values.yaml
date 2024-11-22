@@ -5,7 +5,7 @@ ckan:
   replicaCount: 1
   image:
     repository: ghcr.io/mosoriob/ckan
-    tag: afe048f8ecebe8429c8072181a197b51227fa81c
+    tag: 1363a5f2796c2b5d2f88e1bc6f078317d3a2da70
 
   ckan:
     siteUrl: 'http://ckan.tacc.cloud'
@@ -48,13 +48,13 @@ ckan:
       - name: CKAN_OAUTH2_JWT_ENABLE
         value: 'true'
       - name: CKANEXT__S3FILESTORE__HOST_NAME
-        value: 'http://minio-service.com'
+        value: 'https://s3.mint.isi.edu'
       - name: CKANEXT__S3FILESTORE__CHECK_ACCESS_ON_STARTUP
-        value: 'false'
+        value: 'true'
       - name: CKANEXT__S3FILESTORE__AWS_BUCKET_NAME
-        value: 'a-bucket-to-store-your-stuff'
+        value: 'ckan'
       - name: CKANEXT__S3FILESTORE__REGION_NAME
-        value: 'region-name'
+        value: 'us-west-2'
       - name: CKANEXT__S3FILESTORE__SIGNATURE_VERSION
         value: 's3v4'
       - name: CKANEXT__S3FILESTORE__AWS_ACCESS_KEY_ID
